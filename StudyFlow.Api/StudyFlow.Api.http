@@ -1,0 +1,31 @@
+@baseUrl = http://localhost:5080
+
+### Criar — 201
+POST {{baseUrl}}/api/v1/tarefas
+Content-Type: application/json
+
+{"titulo":"Estudar EF Core","disciplina":"C#","descricao":"Revisar migrations","prazo":"2026-10-10","concluida":false}
+
+### Listar — 200
+GET {{baseUrl}}/api/v1/tarefas
+
+### Consultar (substitua pelo ID retornado na criação)
+GET {{baseUrl}}/api/v1/tarefas/1
+
+### Atualizar — 204
+PUT {{baseUrl}}/api/v1/tarefas/1
+Content-Type: application/json
+
+{"titulo":"Estudar EF Core","disciplina":"C#","descricao":"Revisão concluída","prazo":"2026-10-10","concluida":true}
+
+### Filtrar
+GET {{baseUrl}}/api/v1/tarefas?concluida=true
+
+### Excluir — 204
+DELETE {{baseUrl}}/api/v1/tarefas/1
+
+### Validar — 400
+POST {{baseUrl}}/api/v1/tarefas
+Content-Type: application/json
+
+{"titulo":"","disciplina":"","prazo":"0001-01-01"}

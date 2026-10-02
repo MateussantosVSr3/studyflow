@@ -1,0 +1,294 @@
+[
+  {
+    "name": "01-post-201",
+    "method": "POST",
+    "url": "http://localhost:5080/api/v1/tarefas",
+    "request": {
+      "titulo": "Revisar EF Core",
+      "disciplina": "C# Software Development",
+      "descricao": "Estudar DbContext e migrations para o CP5",
+      "prazo": "2026-10-10",
+      "concluida": false
+    },
+    "status": 201,
+    "headers": {
+      "api-supported-versions": "1.0",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 02 Oct 2026 23:09:01 GMT",
+      "location": "http://localhost:5080/api/v1/tarefas/2",
+      "server": "Kestrel",
+      "transfer-encoding": "chunked"
+    },
+    "response": {
+      "id": 2,
+      "titulo": "Revisar EF Core",
+      "disciplina": "C# Software Development",
+      "descricao": "Estudar DbContext e migrations para o CP5",
+      "prazo": "2026-10-10",
+      "concluida": false,
+      "criadaEm": "2026-10-02T23:09:02.2547638Z",
+      "atualizadaEm": "2026-10-02T23:09:02.2547657Z"
+    }
+  },
+  {
+    "name": "02-get-lista-200",
+    "method": "GET",
+    "url": "http://localhost:5080/api/v1/tarefas",
+    "request": null,
+    "status": 200,
+    "headers": {
+      "api-supported-versions": "1.0",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 02 Oct 2026 23:09:01 GMT",
+      "server": "Kestrel",
+      "transfer-encoding": "chunked"
+    },
+    "response": [
+      {
+        "id": 2,
+        "titulo": "Revisar EF Core",
+        "disciplina": "C# Software Development",
+        "descricao": "Estudar DbContext e migrations para o CP5",
+        "prazo": "2026-10-10",
+        "concluida": false,
+        "criadaEm": "2026-10-02T23:09:02.2547638",
+        "atualizadaEm": "2026-10-02T23:09:02.2547657"
+      }
+    ]
+  },
+  {
+    "name": "03-get-id-200",
+    "method": "GET",
+    "url": "http://localhost:5080/api/v1/tarefas/2",
+    "request": null,
+    "status": 200,
+    "headers": {
+      "api-supported-versions": "1.0",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 02 Oct 2026 23:09:01 GMT",
+      "server": "Kestrel",
+      "transfer-encoding": "chunked"
+    },
+    "response": {
+      "id": 2,
+      "titulo": "Revisar EF Core",
+      "disciplina": "C# Software Development",
+      "descricao": "Estudar DbContext e migrations para o CP5",
+      "prazo": "2026-10-10",
+      "concluida": false,
+      "criadaEm": "2026-10-02T23:09:02.2547638",
+      "atualizadaEm": "2026-10-02T23:09:02.2547657"
+    }
+  },
+  {
+    "name": "04-put-204",
+    "method": "PUT",
+    "url": "http://localhost:5080/api/v1/tarefas/2",
+    "request": {
+      "titulo": "Revisar EF Core",
+      "disciplina": "C# Software Development",
+      "descricao": "Estudar DbContext e migrations para o CP5",
+      "prazo": "2026-10-10",
+      "concluida": true
+    },
+    "status": 204,
+    "headers": {
+      "api-supported-versions": "1.0",
+      "date": "Fri, 02 Oct 2026 23:09:01 GMT",
+      "server": "Kestrel"
+    },
+    "response": null
+  },
+  {
+    "name": "05-get-filtro-200",
+    "method": "GET",
+    "url": "http://localhost:5080/api/v1/tarefas?concluida=true",
+    "request": null,
+    "status": 200,
+    "headers": {
+      "api-supported-versions": "1.0",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 02 Oct 2026 23:09:01 GMT",
+      "server": "Kestrel",
+      "transfer-encoding": "chunked"
+    },
+    "response": [
+      {
+        "id": 2,
+        "titulo": "Revisar EF Core",
+        "disciplina": "C# Software Development",
+        "descricao": "Estudar DbContext e migrations para o CP5",
+        "prazo": "2026-10-10",
+        "concluida": true,
+        "criadaEm": "2026-10-02T23:09:02.2547638",
+        "atualizadaEm": "2026-10-02T23:09:02.2961023"
+      }
+    ]
+  },
+  {
+    "name": "06-post-invalido-400",
+    "method": "POST",
+    "url": "http://localhost:5080/api/v1/tarefas",
+    "request": {
+      "titulo": "",
+      "disciplina": "",
+      "prazo": "0001-01-01"
+    },
+    "status": 400,
+    "headers": {
+      "content-type": "application/problem+json; charset=utf-8",
+      "date": "Fri, 02 Oct 2026 23:09:01 GMT",
+      "server": "Kestrel",
+      "transfer-encoding": "chunked"
+    },
+    "response": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+      "title": "One or more validation errors occurred.",
+      "status": 400,
+      "errors": {
+        "Titulo": [
+          "The Titulo field is required.",
+          "The field Titulo must be a string with a minimum length of 3 and a maximum length of 120."
+        ],
+        "Disciplina": [
+          "The Disciplina field is required."
+        ]
+      },
+      "traceId": "00-7a7da9eeeb0ea2229054b27e54905b5f-5fc28b3c1fb130ed-00"
+    }
+  },
+  {
+    "name": "07-delete-204",
+    "method": "DELETE",
+    "url": "http://localhost:5080/api/v1/tarefas/2",
+    "request": null,
+    "status": 204,
+    "headers": {
+      "api-supported-versions": "1.0",
+      "date": "Fri, 02 Oct 2026 23:09:01 GMT",
+      "server": "Kestrel"
+    },
+    "response": null
+  },
+  {
+    "name": "08-get-inexistente-404",
+    "method": "GET",
+    "url": "http://localhost:5080/api/v1/tarefas/2",
+    "request": null,
+    "status": 404,
+    "headers": {
+      "api-supported-versions": "1.0",
+      "content-type": "application/problem+json; charset=utf-8",
+      "date": "Fri, 02 Oct 2026 23:09:01 GMT",
+      "server": "Kestrel",
+      "transfer-encoding": "chunked"
+    },
+    "response": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Tarefa não encontrada",
+      "status": 404,
+      "detail": "Não existe tarefa com ID 2.",
+      "traceId": "00-8167702e7a9a960f3f5672f3403c37a8-de25946a7fa0d5ab-00"
+    }
+  },
+  {
+    "name": "09-put-inexistente-404",
+    "method": "PUT",
+    "url": "http://localhost:5080/api/v1/tarefas/2",
+    "request": {
+      "titulo": "Revisar EF Core",
+      "disciplina": "C# Software Development",
+      "descricao": "Estudar DbContext e migrations para o CP5",
+      "prazo": "2026-10-10",
+      "concluida": false
+    },
+    "status": 404,
+    "headers": {
+      "api-supported-versions": "1.0",
+      "content-type": "application/problem+json; charset=utf-8",
+      "date": "Fri, 02 Oct 2026 23:09:01 GMT",
+      "server": "Kestrel",
+      "transfer-encoding": "chunked"
+    },
+    "response": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Tarefa não encontrada",
+      "status": 404,
+      "detail": "Não existe tarefa com ID 2.",
+      "traceId": "00-950c6bb7a4b55f776be755185827ef52-c7f8809f9ab61d6a-00"
+    }
+  },
+  {
+    "name": "10-delete-inexistente-404",
+    "method": "DELETE",
+    "url": "http://localhost:5080/api/v1/tarefas/2",
+    "request": null,
+    "status": 404,
+    "headers": {
+      "api-supported-versions": "1.0",
+      "content-type": "application/problem+json; charset=utf-8",
+      "date": "Fri, 02 Oct 2026 23:09:01 GMT",
+      "server": "Kestrel",
+      "transfer-encoding": "chunked"
+    },
+    "response": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Tarefa não encontrada",
+      "status": 404,
+      "detail": "Não existe tarefa com ID 2.",
+      "traceId": "00-73c9bbc309177aa7999fc5d9bb4f3121-fd3a0570071b73fb-00"
+    }
+  },
+  {
+    "name": "11-json-invalido-400",
+    "method": "POST",
+    "url": "http://localhost:5080/api/v1/tarefas",
+    "request": {
+      "titulo": "Revisar EF Core",
+      "disciplina": "C# Software Development",
+      "descricao": "Estudar DbContext e migrations para o CP5",
+      "prazo": "data-invalida",
+      "concluida": false
+    },
+    "status": 400,
+    "headers": {
+      "content-type": "application/problem+json; charset=utf-8",
+      "date": "Fri, 02 Oct 2026 23:09:01 GMT",
+      "server": "Kestrel",
+      "transfer-encoding": "chunked"
+    },
+    "response": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+      "title": "One or more validation errors occurred.",
+      "status": 400,
+      "errors": {
+        "request": [
+          "The request field is required."
+        ],
+        "$.prazo": [
+          "The JSON value could not be converted to System.DateOnly. Path: $.prazo | LineNumber: 0 | BytePositionInLine: 146."
+        ]
+      },
+      "traceId": "00-54079a18c6febbd7f54538a2e580882c-873f35338de9637b-00"
+    }
+  },
+  {
+    "name": "12-versao-inexistente-404",
+    "method": "GET",
+    "url": "http://localhost:5080/api/v2/tarefas",
+    "request": null,
+    "status": 404,
+    "headers": {
+      "content-type": "application/problem+json",
+      "date": "Fri, 02 Oct 2026 23:09:01 GMT",
+      "server": "Kestrel",
+      "transfer-encoding": "chunked"
+    },
+    "response": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Not Found",
+      "status": 404,
+      "traceId": "00-69c7985c4b4343da846e0318a8e9b6c5-ddf9d43706465905-00"
+    }
+  }
+]
